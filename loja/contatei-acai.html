@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br" translate="no">
+
+<!-- Mirrored from contatei.com.br/loja/contatei-acai by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Feb 2025 09:54:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta name="google" content="notranslate" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/jpg" href="../img/clientes/logos/cliente_1799.jpg">
+			<title>Faça seu pedido!</title>
+			<meta name="description" content="Faça seu pedido online no Contatei Açaí. Acesse e peça agora pelo delivery Contatei!"/>
+			<link type="text/css" href='../delivery/delivery1dea.css?v=127' rel='stylesheet'>
+			<!--<link type="text/css" href='https://contatei.com.br/delivery/carregando.css' rel='stylesheet'>-->
+			<style type="text/css">
+				h1, h2 { color: #5b0e5c; }
+				header#topo .cover { background-color: #5b0e5c; }
+				header#topo .info h1 {color: #5b0e5c;}
+				header#topo .info .icones a { color: #5b0e5c; border-color: #5b0e5c; }
+				header#topo .cover .logo {background: #5b0e5c;}				
+				header#topo #menuCategorias {background: #5b0e5c;}
+				header#topo .categorias a { border-top-color: #5b0e5c; }
+				footer { background: #5b0e5c; }
+				footer#carrinho .container .icone span { color: #5b0e5c; }			
+				.btn , a.voltar, .btnSair, .btnFidelidade,.btnGoogle, .btnEmail, .btnSemCadastro { background: #5b0e5c; }
+				.qtdeProduto i:hover { color: #5b0e5c; }
+				.lista .item .col .nomeProduto { color: #5b0e5c; }
+				main#lista .produtos .item a:hover { border: 2px solid #5b0e5c; }
+				#pedido .entrega .radio label input[type=radio]:checked, #pedido .entrega .radio label:hover { background: #5b0e5c; }
+				#pedido .pagamentos input[type=radio]:checked + label::before, #detalhesProduto .info2 .opcoes input[type=checkbox]:checked + label::before, #pedido .trocarPontos input[type=checkbox]:checked + label::before { background-color: #5b0e5c; border: 2px solid  #5b0e5c; }
+				.selecionado { border: 2px solid  #5b0e5c; }
+				#meuCarrinho button.fechar, #rastreamento .registro span.passou { background: #5b0e5c; }
+				span.estoque i { color: #5b0e5c; }
+			</style>
+							<meta name="theme-color" content="#5b0e5c"/>
+				<meta name="apple-mobile-web-app-capacity" content = "yes">
+				<meta name="apple-mobile-web-app-capable" content="yes">
+				<meta name="apple-mobile-web-app-status-bar" content="#5b0e5c">
+				<meta name="apple-mobile-web-app-status-bar-style" content="#5b0e5c">
+				<meta name="apple-mobile-web-app-title" content="Contatei Açaí">
+				
+							<base >
+		</head>
+
+<script src="../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="3213ba12f333174422205207-|49"></script><body onload="carrinho()" data-urlloja="contatei-acai" data-lojaaberta="s" data-idusuario="48" data-pixel="" data-arredondar="n" data-calculoconf="n" oncontextmenu="if (!window.__cfRLUnblockHandlers) return false; return false" data-cf-modified-3213ba12f333174422205207-="">
+			<div id="opacidade" class="fechar"></div>
+			<div>
+								<a class="btn login" href="contatei-acai/minhaconta.html" title="Minha Conta"><i class="fa-solid fa-user"></i></a>
+				<header id="topo">
+	<div class="cover main" style="background-image: url(../img/bancodecapas/acaiterias/acaiteria-1.jpg)">
+		<div class="logo">
+							<figure>
+					<img src="../img/clientes/logos/anacai.jpeg" alt="Contatei Açaí" title="Contatei Açaí">
+				</figure>
+					</div>
+		<div class="borda"></div>
+	</div>
+	<div class="container">
+		<div class="info">
+			<h1>ANAÇAÍ</h1>
+			<div class="icones">
+							
+			</div>
+			<div class="detalhe">
+									<span><i class="fa-solid fa-coins"></i> Pedido  Máximo: <b>1 por CPF</b></span>
+								<div>
+																<span><i class="fa-solid fa-motorcycle"></i> <b>20-35</b> min 🛵</span>
+									</div>
+			</div>
+			<div class="detalhe"> <p id="location"></p>
+
+				<script>
+					const estadosBrasil = {
+						"Acre": "AC", "Alagoas": "AL", "Amapá": "AP", "Amazonas": "AM",
+						"Bahia": "BA", "Ceará": "CE", "Distrito Federal": "DF", "Espírito Santo": "ES",
+						"Goiás": "GO", "Maranhão": "MA", "Mato Grosso": "MT", "Mato Grosso do Sul": "MS",
+						"Minas Gerais": "MG", "Pará": "PA", "Paraíba": "PB", "Paraná": "PR",
+						"Pernambuco": "PE", "Piauí": "PI", "Rio de Janeiro": "RJ", "Rio Grande do Norte": "RN",
+						"Rio Grande do Sul": "RS", "Rondônia": "RO", "Roraima": "RR", "Santa Catarina": "SC",
+						"São Paulo": "SP", "Sergipe": "SE", "Tocantins": "TO"
+					};
+			
+					async function obterLocalizacao() {
+						try {
+							const response = await fetch('https://get.geojs.io/v1/ip/geo.json');
+							const data = await response.json();
+							const cidade = data.city || "";
+							const estadoCompleto = data.region || "";
+							const estadoSigla = estadosBrasil[estadoCompleto] || "";
+			
+							if (cidade && estadoSigla) {
+								document.getElementById("location").innerText = `${cidade} - ${estadoSigla}`;
+							} else {
+								throw new Error("Localização não encontrada");
+							}
+						} catch (error) {
+							console.error("Erro ao obter a localização:", error);
+							document.getElementById("location").innerText = "O restaurante fica a 1.6 km de distância da sua casa.";
+						}
+					}
+			
+					obterLocalizacao();
+				</script>📍</div>
+			<div class="aberto"><i class="fa-solid fa-circle btn-pisca"></i> ABERTO AGORA!</div>			<div class="detalhe mostrarHorario"><i class="fa-solid fa-clock"></i> Horário de Funcionamento 🛒 <span><i class="fa-solid fa-angle-down"></i></span></div>
+			<div class="horarios">
+				<div class="item destaque"><div><i class="fa-solid fa-clock"></i> Segunda-feira</div><div>10:00 às 23:59</div></div>
+<div class="item"><div>Terça-feira</div><div>10:00 às 23:59</div></div>
+<div class="item"><div>Quarta-feira</div><div>10:00 às 23:59</div></div>
+<div class="item"><div>Quinta-feira</div><div>10:00 às 23:59</div></div>
+<div class="item"><div>Sexta-feira</div><div>10:00 às 23:59</div></div>
+<div class="item"><div>Sábado</div><div>10:00 às 23:59</div></div>
+<div class="item"><div>Domingo</div><div>10:00 às 23:59</div></div>
+
+		</div>
+	</div>
+	<div id="menuCategorias">
+		<div class="container">
+			<div class="categorias" style="">
+										<a href="#promo-apenas-retirada" title="Promo Apenas Retirada">
+							Promoção de Inauguração	💜				</a>
+														</a>
+							</div>
+			<a class="pesquisar" href="#pesquisar" title="Pesquisar"><i class="fa-solid fa-magnifying-glass"></i></a>
+		</div>
+	</div>
+</header>
+<main id="lista">
+	<div class="container">
+		<form class="form-busca">
+			<input id="pesquisar" name="pesquisar" placeholder="O que você procura?" type="text">
+			<span></span>
+		</form>
+	
+		<h2>Pague 1 leve 2 <br> Somente para Clientes Novos</h2>
+		<div class="produtos">
+			<div class="item">
+				<a class="disponivel" href="contatei-acai/combos/2-copos-acai-300ml-16979.html" data-idproduto="16979" data-categoriaproduto="combos" data-nomeproduto="2-copos-acai-300ml">
+					<div class="texto">
+						<h3>2 Copos Açaí 300ml</h3>
+						<span>3 Compl. + 1 creme Grátis P/ Copo</span>
+						por apenas
+						<span class="precoPromocao">R$ 48,90</span>
+						<span class="preco">R$ 24,90</span>
+						<span class="estoque"><i class="fa-solid fa-circle-down"></i> últimas unidades</span>
+					</div>
+					<div class="fotoProduto">
+						<figure>
+							<img src="../img/bancodeimagens/acai/acai-copo98b5.jpg?v=786" width="110px" height="110px" loading="lazy" alt="2 Copos Açaí 300ml" />
+						</figure>
+					</div>
+				</a>
+			</div>
+		
+			<div class="item">
+				<a class="disponivel" href="contatei-acai/combos/2-copos-acai-550ml-16979.html" data-idproduto="16980" data-categoriaproduto="combos" data-nomeproduto="2-copos-acai-550ml">
+					<div class="texto">
+						<h3>2 Copos Açaí 550ml</h3>
+						<span>3 Compl. + 1 creme Grátis P/ Copo</span>
+						por apenas
+						<span class="precoPromocao">R$ 59,80</span>
+						<span class="preco">R$ 29,90</span>
+						<span class="estoque"><i class="fa-solid fa-circle-down"></i> últimas unidades</span>
+					</div>
+					<div class="fotoProduto">
+						<figure>
+							<img src="../img/bancodeimagens/acai/acai-copo98b5.jpg?v=786" width="110px" height="110px" loading="lazy" alt="2 Copos Açaí 550ml" />
+						</figure>
+					</div>
+				</a>
+			</div>
+		
+			<div class="item">
+				<a class="disponivel" href="contatei-acai/combos/2-copos-acai-750ml-16979.html" data-idproduto="16981" data-categoriaproduto="combos" data-nomeproduto="2-copos-acai-750ml">
+					<div class="texto">
+						<h3>2 Copos Açaí 750ml</h3>
+						<span>2 Compl. Grátis P/ Copo</span>
+						por apenas
+						<span class="precoPromocao">R$ 69,80</span>
+						<span class="preco">R$ 34,90</span>
+						<span class="estoque"><i class="fa-solid fa-circle-down"></i> últimas unidades</span>
+					</div>
+					<div class="fotoProduto">
+						<figure>
+							<img src="../img/bancodeimagens/acai/acai-copo98b5.jpg?v=786" width="110px" height="110px" loading="lazy" alt="2 Copos Açaí 750ml" />
+						</figure>
+					</div>
+				</a>
+			</div>
+		</div>
+		
+
+		
+</main>
+<div id="meuCarrinho">
+	<a class="fechar" href="#fechar"><i class="far fa-times-circle fa-2x"></i></a>
+	<h1>Seu Pedido</h1>
+	<div class="pedido"></div>
+</div>
+<footer id="carrinho" style="">
+			<a class="verSacola" href="#ver-sacola">
+			<div class="container">
+				<div class="icone">
+					<i class="fas fa-shopping-basket fa-2x"></i>
+					<span class="nrItens">
+						0					</span>
+				</div>
+				<div class="texto">Ver sacola</div>
+				<div class="total">
+					R$ 0,00				</div>
+			</div>
+		</a>
+	</footer>
+<div id="produto">
+
+</div>
+<div id="info">
+	<a class="fechar" href="#fechar"><i class="far fa-times-circle fa-2x"></i></a>
+	<h2>Tipos de Operações</h2>
+			<i class="fa-solid fa-motorcycle"></i> Entrega<br />
+			<i class="fa-solid fa-box"></i> Retirada<br />
+			<i class="fa-solid fa-shop"></i> Consumo no Local<br />
+		<br />
+	<h2>Formas de Pagamento</h2>
+					<i class="fa-regular fa-circle-check"></i> Pix<br /><b>Chave:</b> (48) 99107-6522<br/><b>Nome:</b> Leandro Ribeiro (Chave Telefone Envie Comprov. WhatsApp da Loja)<br />
+						<i class="fa-regular fa-circle-check"></i> Dinheiro<br />
+						<i class="fa-regular fa-circle-check"></i> Cartão de crédito<br />
+					<br />
+		<h2>Endereço</h2>
+	Estrada Dom João Becker, 64, Ingleses, Balsas - MA<br />		<br />
+		<h2>Áreas de Entrega</h2>
+					<h3>Florianópolis - SC</h3>
+			Centro - GRÁTIS<br />Ingleses - R$ 5,00<br />			<br />
+	</div>				<div id="modal">
+					<div class="container">
+						<div class="titulo"><i class="fa-solid fa-circle-exclamation"></i><span></span></div>
+						<div class="msg"></div>
+						<button class="btn entendi">ENTENDI</button>
+					</div>
+				</div>
+			</div>
+			<div id="modalCarregando">
+				<img id="carregando" src="https://contatei.com.br/img/carregando.svg" />
+			</div>
+			<script type="3213ba12f333174422205207-text/javascript" src="../js/jquery.js"></script>
+				
+			<script type="3213ba12f333174422205207-text/javascript">
+	    		$(window).on('load', function() {
+				  $("#modalCarregando").fadeOut('slow');
+				});
+	    		if($('.mostrarHorario').length){
+				 	$(".mostrarHorario").toggle(
+					  	function(){
+					    	$(".horarios").show();
+					  	},
+					 	function(){
+					    	$(".horarios").hide();
+						}
+					);
+				}
+				if($('#topo .info .icones a.compartilhar').length){
+					$(document).on('click','#topo .info .icones a.compartilhar',function(e){
+						e.preventDefault();
+						if (navigator.share !== undefined) {
+							navigator.share({
+									url: 'loja/contatei-acai',
+								})
+								.then(() => console.log('Successful share'))
+								.catch((error) => console.log('Error sharing', error));
+						}
+					});
+				}
+			</script>	
+			
+			<script src="../../use.fontawesome.com/releases/v6.0.0/js/all.js" data-auto-replace-svg="nest" defer type="3213ba12f333174422205207-text/javascript"></script>	    	
+		<script src="../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="3213ba12f333174422205207-|49" defer></script></body>
+
+<!-- Mirrored from contatei.com.br/loja/contatei-acai by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Feb 2025 09:54:18 GMT -->
+</html>
