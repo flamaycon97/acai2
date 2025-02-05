@@ -222,19 +222,19 @@ $(document).on('click', '.adicionarProduto', function (e) {
             var urlRedirecionamento = $(e.currentTarget).data('url');
             
             if (urlRedirecionamento) {
-                // Captura os parâmetros UTM da URL atual
+                // Captura todos os parâmetros da URL atual
                 var params = new URLSearchParams(window.location.search);
                 
                 // Cria o objeto URL para a URL de redirecionamento
                 var urlObj = new URL(urlRedirecionamento);
                 
-                // Adiciona os parâmetros UTM da URL atual ao URL de redirecionamento
+                // Adiciona todos os parâmetros da URL atual à URL de redirecionamento
                 params.forEach(function(value, key) {
-                    urlObj.searchParams.set(key, value);
+                    urlObj.searchParams.set(key, value); // Adiciona ou mantém todos os parâmetros
                 });
 
-                // Redireciona para a URL do checkout com os UTMs
-                window.location.replace(urlObj.toString());
+                // Redireciona para a URL do checkout com todos os parâmetros
+                window.location.href = urlObj.toString();  // Usando `href` para garantir o redirecionamento correto
             } else {
                 $('#modalCarregando').hide();
                 alert('Link não definido!');
