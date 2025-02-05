@@ -210,7 +210,7 @@ $(document).ready(function () {
 		verificarBotaoAdicionarProduto();
 	});
 
-	var DELAY = 300, clicks = 0, timer = null;
+var DELAY = 300, clicks = 0, timer = null;
 
 $(document).on('click', '.adicionarProduto', function (e) {
     e.preventDefault();
@@ -220,10 +220,20 @@ $(document).on('click', '.adicionarProduto', function (e) {
         $('#modalCarregando').show();
         timer = setTimeout(function () {
             var urlRedirecionamento = $(e.currentTarget).data('url');
-
+            
             if (urlRedirecionamento) {
-                // Redireciona para a URL sem alterar os parâmetros
-                window.location.replace(urlRedirecionamento);
+                var urlObj = new URL(urlRedirecionamento);
+                
+                // Captura os parâmetros UTM da URL atual
+                var params = new URLSearchParams(window.location.search);
+                
+                // Mantém os parâmetros UTM existentes
+                params.forEach((value, key) => {
+                    urlObj.searchParams.set(key, value);
+                });
+
+                // Redireciona para o checkout mantendo os UTMs
+                window.location.replace(urlObj.toString());
             } else {
                 $('#modalCarregando').hide();
                 alert('Link não definido!');
@@ -236,6 +246,7 @@ $(document).on('click', '.adicionarProduto', function (e) {
         clicks = 0; // Reseta o contador
     }
 });
+
 
 	
 
