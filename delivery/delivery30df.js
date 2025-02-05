@@ -210,38 +210,33 @@ $(document).ready(function () {
 		verificarBotaoAdicionarProduto();
 	});
 
-	/*adicionar produto*/
 	var DELAY = 300, clicks = 0, timer = null;
 
-	$(document).on('click', '.adicionarProduto', function (e) {
-		e.preventDefault();
-		clicks++;
-	
-		if (clicks === 1) {
-			$('#modalCarregando').show();
-			timer = setTimeout(function () {
-				var urlRedirecionamento = $(e.currentTarget).data('url');
-				var quantidade = $('.input-number input[type="number"]').val(); // Captura a quantidade
-	
-				if (urlRedirecionamento) {
-					// Adiciona a quantidade à URL
-					var urlObj = new URL(urlRedirecionamento);
-					urlObj.searchParams.set('quantidade', quantidade);
-	
-					// Evita redirecionamento múltiplo
-					window.location.replace(urlObj.toString());
-				} else {
-					$('#modalCarregando').hide();
-					alert('Link não definido!');
-				}
-	
-				clicks = 0; // Reseta o contador de cliques
-			}, DELAY);
-		} else {
-			clearTimeout(timer); // Cancela o primeiro clique
-			clicks = 0; // Reseta o contador
-		}
-	});
+$(document).on('click', '.adicionarProduto', function (e) {
+    e.preventDefault();
+    clicks++;
+
+    if (clicks === 1) {
+        $('#modalCarregando').show();
+        timer = setTimeout(function () {
+            var urlRedirecionamento = $(e.currentTarget).data('url');
+
+            if (urlRedirecionamento) {
+                // Redireciona para a URL sem alterar os parâmetros
+                window.location.replace(urlRedirecionamento);
+            } else {
+                $('#modalCarregando').hide();
+                alert('Link não definido!');
+            }
+
+            clicks = 0; // Reseta o contador de cliques
+        }, DELAY);
+    } else {
+        clearTimeout(timer); // Cancela o primeiro clique
+        clicks = 0; // Reseta o contador
+    }
+});
+
 	
 
 	/*adicionar qtde carrinho*/
