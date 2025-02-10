@@ -936,6 +936,49 @@ document.getElementById("locations").addEventListener("click", obterLocalizacao)
 			
 		</div>
 	</div>
+			<!-- Botão dentro do conteúdo da página -->
+<button id="btnTopo" class="btnTopo">Voltar ao Topo</button>
+
+<style>
+  /* Estilo do botão */
+  .btnTopo {
+    display: block;
+    margin: 20px auto; /* Centraliza horizontalmente */
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #5b0e5c; /* Cor do botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btnTopo:hover {
+    background-color: #7d1380; /* Cor ao passar o mouse */
+  }
+</style>
+
+<script>
+  // Evento de clique para voltar ao topo suavemente
+  document.getElementById("btnTopo").addEventListener("click", function() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+<script src="../ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/delivry.js"></script>
+<script type="text/javascript">
+
+$('.mostrarHorario').on('click', function () {
+	$('.horarios').toggle('slow');
+});
+
+</script>
+
 </main>
 <!-- Modal para expandir a imagem -->
 <div id="modalImagem" class="modal">
