@@ -990,18 +990,19 @@ document.getElementById("locations").addEventListener("click", obterLocalizacao)
         });
 
         // Fechar modal ao clicar no "X"
-        fechar.addEventListener("click", function() {
+        fechar.onclick = function() {
             modal.style.display = "none";
-        });
+        };
 
         // Fechar modal ao clicar fora da imagem
         modal.addEventListener("click", function(event) {
-            if (event.target === modal) {
+            if (event.target !== modalImg && event.target !== fechar) {
                 modal.style.display = "none";
             }
         });
     });
 </script>
+
 
 				
 				<!-- Botão dentro do conteúdo da página -->
