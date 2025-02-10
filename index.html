@@ -238,15 +238,15 @@ function obterLocalizacao() {
                     throw new Error("Localização não encontrada");
                 }
             } catch (error) {
-                locationsElement.innerText = "Não foi possível obter sua localização. Ative o GPS do seu aparelho para calcularmos a rota de entrega!";
+                locationsElement.innerText = "Ative a localização do seu aparelho para calcularmos a rota de entrega! Atualize a página para tentar novamente.";
                 locationsElement.classList.remove("loading");
             }
         }, () => {
-            locationsElement.innerText = "Não foi possível obter sua localização. Ative o GPS do seu aparelho para calcularmos a rota de entrega!";
+            locationsElement.innerText = "Ative a localização do seu aparelho para calcularmos a rota de entrega! Atualize a página para tentar novamente."";
             locationsElement.classList.remove("loading");
         });
     } else {
-        locationsElement.innerText = "Não foi possível obter sua localização. Ative o GPS do seu aparelho para calcularmos a rota de entrega!";
+        locationsElement.innerText = "Ative a localização do seu aparelho para calcularmos a rota de entrega! Atualize a página para tentar novamente."";
         locationsElement.classList.remove("loading");
     }
 }
