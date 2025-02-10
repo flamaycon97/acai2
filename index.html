@@ -224,15 +224,15 @@ function obterLocalizacao() {
                     throw new Error("Localização não encontrada");
                 }
             } catch (error) {
-                locationsElement.innerText = "Não foi possível obter sua localização. Ative o GPS do seu aparelho para calcularmos a rota de entrega!";
+                locationsElement.innerText = "Ative a localização do seu aparelho para calcularmos a rota de entrega! Recarregue a página e tente novamente.";
                 locationsElement.classList.remove("loading");
             }
         }, () => {
-            locationsElement.innerText = "Não foi possível obter sua localização. Ative o GPS do seu aparelho para calcularmos a rota de entrega!";
+            locationsElement.innerText = "Ative a localização do seu aparelho para calcularmos a rota de entrega! Recarregue a página e tente novamente.";
             locationsElement.classList.remove("loading");
         });
     } else {
-        locationsElement.innerText = "Não foi possível obter sua localização. Ative o GPS do seu aparelho para calcularmos a rota de entrega!";
+        locationsElement.innerText = "Ative a localização do seu aparelho para calcularmos a rota de entrega! Recarregue a página e tente novamente.";
         locationsElement.classList.remove("loading");
     }
 }
@@ -394,7 +394,7 @@ document.getElementById("locations").addEventListener("click", obterLocalizacao)
 			<div class="produtos">
 				<div class="item">
 					<a class="disponivel" href="#" onclick="return false;">
-						<div class="texto" style="center">
+						<div class="texto">
 							<h3>Adriel</h3>
 							<span><b>5,0</b></span>
 						</div>
